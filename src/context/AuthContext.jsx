@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
     checkAuth();
   }, []);
 
-const login = useCallback(async (email, password) => {
+  const login = useCallback(async (email, password) => {
   try {
     setIsLoading(true);
 

@@ -64,18 +64,20 @@ const RegisterForm = ({ onSuccess }) => {
     }
     
     try {
-      const result = await register(formData);
-      
-      if (result.success) {
-        if (onSuccess) {
-          onSuccess(result.user);
-        }
-      } else {
-        setError(result.error || 'Registrasi gagal. Silakan coba lagi.');
-      }
-    } catch (err) {
-      setError('Terjadi kesalahan. Silakan coba lagi.');
+  const result = await register(formData);
+  
+  if (result.success) {
+    if (onSuccess) {
+      onSuccess(result.user);
     }
+  } else {
+    setError(result.error || 'Registrasi gagal. Silakan coba lagi.');
+  }
+} catch (err) {
+  setError('Terjadi kesalahan. Silakan coba lagi.');
+  console.error(err); // Opsional, untuk debugging
+}
+
   };
 
   const handleChange = (e) => {
